@@ -1,6 +1,6 @@
 ```mermaid
 graph LR
-    A[Camera (RTSP)] -->|Stream| B[DeepStream Server]
+    A[Camera] -->|Stream| B[DeepStream Server]
     B -->|Inference Request| C[Triton Inference Server]
     C -->|Inference Response| B
     B -->|Output Stream| D[RTSP Server]
