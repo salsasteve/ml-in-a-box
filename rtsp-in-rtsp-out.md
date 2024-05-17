@@ -26,9 +26,9 @@ This diagram illustrates the following flow:
 
 ```bash
 git clone https://github.com/salsasteve/ml-in-a-box.git
-cd triton-server-yolo
+cd tools
 # Start Docker container
-bash ./start-container-triton-server.sh
+python script.py --host-ports 8010,8011,8012 --container-ports 8000,8001,8002
 ```
 
 ### Starting Triton Inference Server
