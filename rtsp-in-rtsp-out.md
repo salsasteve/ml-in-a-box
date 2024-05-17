@@ -18,12 +18,12 @@ This diagram illustrates the following flow:
 ### Starting NVIDIA Triton Inference Server Container with Docker
 
 #### Prerequisites
-
+ON HOST      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 - Docker with support for [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) must be installed.
 - NVIDIA GPU(s) should be available.
 
 ### Instructions
-
+ON HOST      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```bash
 git clone https://github.com/salsasteve/ml-in-a-box.git
 cd tools
@@ -45,12 +45,19 @@ bash ./start-triton-server.sh  \
 --max_batch_size 4 \
 --instance_group 1 
 ```
+### Build and Run Deepstream docker container
+ON HOST      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```bash
+git clone https://github.com/levipereira/docker_images.git
+cd docker_images
+bash ./build_ds-6.4_ts.sh
+bash ./start_deepstream_container.sh
+```
 
 ### Deploy and Start DeepStream and Running rtsp in and rtsp out
 Inside Docker Container:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Also, make sure you change the ports in the pgie_inferserver_config.txt file
 ```bash
-git clone https://github.com/levipereira/deepstream-yolo-triton-server-rtsp-out.git
 python3 ds_yolo-ts_rtsp_out.py  \
 -i rtsp://<username>:<password>@<ipaddress>:<port>/<somepathtocamera>  \
 -m  yolov9-c \
